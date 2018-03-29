@@ -1,7 +1,7 @@
 # hypercontour_m
 
-This repostory contains the MATLAB function hypercontour.m, which contains the
-source code implementing the algorithm presented in the following paper:
+This repostory contains the MATLAB/Octave function hypercontour.m, which contains 
+the source code implementing the algorithm presented in the following paper:
 
   Vollmer, F.W., 2018. Automatic contouring of geological fabric and finite 
   strain data on the unit hyperboloid. Computers & Geosciences, 
