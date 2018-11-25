@@ -1,6 +1,10 @@
 # hypercontour_m
 MATLAB/Octave function for contouring geological fabric and finite strain data on the unit hyperboloid.
 
+https://github.com/vollmerf/hypercontour_m
+
+### Citation
+
 This repostory contains the MATLAB/Octave function hypercontour.m, which contains the
 source code implementing the algorithm presented in the following paper:
 
@@ -14,5 +18,17 @@ content should cite this paper.
 Additional files include a MATLAB test file, and example csv data files used in 
 the paper.
 
+### License
+
 Please see the files LICENSE.md and CITATION.md for license restrictions and 
 citation information.
+
+### Related Software
+
+The standalone program 'EllipseFit' by this author is free software that includes this functionality, and has numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
+
+https://www.frederickvollmer.com/ellipsefit/
+
+or
+
+https://www2.newpaltz.edu/~vollmerf/ellipsefit/
