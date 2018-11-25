@@ -23,7 +23,7 @@ citation information.
 
 ## Related Software
 
-The standalone program 'EllipseFit' by this author is free software that includes this functionality, and has numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
+The standalone program __EllipseFit__ by this author is free software that includes this functionality, and has numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
 
 https://www.frederickvollmer.com/ellipsefit/
 
