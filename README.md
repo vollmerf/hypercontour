@@ -1,9 +1,9 @@
 # hypercontour_m
-MATLAB/Octave function for contouring geological fabric and finite strain data on the unit hyperboloid.
+MATLAB/Octave script for contouring geological fabric and finite strain data on the unit hyperboloid, including Rf/Phi and Elliott polar plots.
 
 ### Citation
 
-This repostory contains the MATLAB/Octave function hypercontour.m, which contains the
+This repostory contains the MATLAB/Octave script hypercontour.m, which contains the
 source code implementing the algorithm presented in the following paper:
 
   Vollmer, F.W., 2018. Automatic contouring of geological fabric and finite 
