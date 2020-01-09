@@ -21,4 +21,6 @@ citation information.
 
 The program __EllipseFit__ by this author is free software that includes this functionality, and numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
 
-https://www.frederickvollmer.com/ellipsefit/
+[www.frederickvollmer.com](https://www.frederickvollmer.com/ellipsefit/)
+
+
