@@ -17,10 +17,12 @@ content should cite this paper.
 Please see the files LICENSE.md and CITATION.md for license restrictions and 
 citation information.
 
+[HyperContour](https://github.com/vollmerf/hypercontour)
+
 ## Related Software
 
 The program __EllipseFit__ by this author is free software that includes this functionality, and numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
 
-[www.frederickvollmer.com](https://www.frederickvollmer.com/ellipsefit/)
+[EllipseFit](https://www.frederickvollmer.com/ellipsefit/)
 
 
