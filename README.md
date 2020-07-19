@@ -21,13 +21,13 @@ citation information.
 
 ## Related Software
 
-The program __EllipseFit__ by this author is free software that includes this functionality, and numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
+The program EllipseFit by this author is free software that includes this functionality, and numerous additional options. It runs on Macintosh, Windows, and Linux platforms, and can be downloaded for free from:
 
 [EllipseFit](https://vollmerf.github.io/ellipsefit/)
 
 --- 
 
-[vollmerf home](../)
+[vollmerf home](https://vollmerf.github.io/)
 
 18 July 2020
 
