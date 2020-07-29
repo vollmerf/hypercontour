@@ -27,7 +27,7 @@ The program EllipseFit by this author is free software that includes this functi
 
 --- 
 
-[vollmerf home](https://vollmerf.github.io/)
+[Home](https://vollmerf.github.io/)
 
 18 July 2020
 
