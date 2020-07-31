@@ -1,5 +1,5 @@
 # HyperContour
-MATLAB/Octave script for contouring geologic fabric and finite strain data on the unit hyperboloid, including Rf/Phi and Elliott polar plots. Additional files include example data files used in the paper.
+MATLAB/Octave script for contouring geologic fabric and finite strain data on the unit hyperboloid, including Rf/Phi and Elliott polar plots from Vollmer, 2018. Additional files include example data files used in the paper.
 
 ## Citation
 
@@ -27,9 +27,9 @@ The program EllipseFit by this author is free software that includes this functi
 
 --- 
 
-[Home](https://vollmerf.github.io/)
+[Home](https://vollmerf.github.io/) | [Software](https://vollmerf.github.io/software/) | [Orient](https://vollmerf.github.io/orient/) | [EllipseFit](https://vollmerf.github.io/ellipsefit/) | [Antevs](https://vollmerf.github.io/antevs/)
 
-18 July 2020
+29 July 2020
 
 
 
