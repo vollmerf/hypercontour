@@ -14,7 +14,7 @@ content should cite this paper.
 
 ## License
 
-Please see the files LICENSE.md and CITATION.md for license restrictions and 
+Please see the [LICENSE](LICENSE.md) and [CITATION](CITATION.md) for license and 
 citation information.
 
 ## Download
