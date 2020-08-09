@@ -1,84 +1,69 @@
-function [points, lines, ticks, frame, grid] = hypercontour(rphi, options, rmax, kappa, nlevels, nnodes)
-% Plots and contours geological fabric and strain data on hyperbaloidal projections. 
+function [points, lines, ticks, frame, grid] = hypercontour ...
+  (rphi, options, rmax, kappa, nlevels, nnodes)
+% HYPERCONTOUR  Plots and contours fabric and strain data.
+% Algorithms are from Vollmer 2018.
 %
-% INPUT
-% -----
-% rphi     : array (R, phi), R = strain ratio (A/B), phi = orientation of long 
-%            axis (A) from x.   
-% options  : comma separated string with non-default options (default = ''):
-%            angle format: 
-%              ''       = radians (default)
-%              'rad'    = radians
-%              'deg'    = degrees
-%              'grd'    = gradians
-%            projection (polar equidistant is default):
-%              ''       = equidistant (log R, Elliott plot)
-%              'eqd'    = equidistant 
-%              'eqa'    = equal-area 
-%              'stg'    = stereographic
-%              'ort'    = orthographic
-%              'gno'    = gnomic
-%              'lin'    = exponential (linear R)
-%              'rdl'    = radial
-%              'rfp'    = Rf/phi (cylindrical instead of polar)
-%            contouring method:
-%              ''       = contour (default)
-%              'ctr'    = contour
-%              'nnm'    = no normalization
-%              'nct'    = no contouring (only points will be returned)
-%            grid to image interpolation: 
-%              ''       = 5 parts (default)
-%              'gi0'    = off
-%              'gi2'    = 2 parts
-%              'gi3'    = 3 parts
-%              'gi4'    = 4 parts
-%              'gi5'    = 5 parts
-%              'gi6'    = 6 parts
-%              'gi8'    = 8 parts
-%              'gia'    = 10 parts
-%            frame and ticks:     
+% Input
+%   rphi     : array [R,phi], R=strain ratio (A/B), phi = orientation 
+%              of long axis (A) from x.   
+%   options  : comma separated string with non-default options:
+%              angle format: 
+%                ''       = degrees (default)
+%                'rad'    = radians
+%                'deg'    = degrees
+%                'grd'    = gradians
+%              projection (polar equidistant is default):
+%                ''       = equidistant (Elliott plot)
+%                'eqd'    = equidistant 
+%                'eqa'    = equal-area 
+%                'stg'    = stereographic
+%                'ort'    = orthographic
+%                'gno'    = gnomic
+%                'lin'    = exponential (linear R)
+%                'rdl'    = radial
+%                'rfp'    = Rf/phi (cylindrical instead of polar)
+%              contouring method:
+%                ''       = contour (default)
+%                'ctr'    = contour
+%                'nnm'    = no normalization
+%                'nct'    = no contouring (only points will be returned)
+%              grid to image interpolation: 
+%                ''       = 5 parts (default)
+%                'gi0'    = off
+%                'gi2'    = 2 parts
+%                'gi3'    = 3 parts
+%                'gi4'    = 4 parts
+%                'gi5'    = 5 parts
+%                'gi6'    = 6 parts
+%                'gi8'    = 8 parts
+%                'gia'    = 10 parts
+%              frame and ticks:     
 %	             ''       = draw circle and tics  
 %	             'ntc'    = draw circle, without tics              
 %	             'nfr'    = no frame 
-%            grid:
-%              ''       = grid     
-%              'ngd'    = no grid     
-% rmax     : maximum R value on plot, default = 0 (automatic).    
-% kappa    : weighting parameter, default = 40. 
-% nlevels  : number of levels spaced over the probability density distribution 
-%            (pdd), 5 will divide the pdd into 5, giving 4 contour lines 
-%            spaced at 20% of the distribution, default = 5. 
-% nnodes   : number of grid nodes, higher is more accurate but slower, 30 is 
-%            good, but 50 is recommended for final plots, default = 30.
+%              grid:
+%                ''       = grid     
+%                'ngd'    = no grid     
+%   rmax     : maximum R value on plot, default = 0 (automatic).    
+%   kappa    : weighting parameter, default = 40. 
+%   nlevels  : number of levels spaced over the probability density distribution 
+%              (pdd), 5 will divide the pdd into 5, giving 4 contour lines 
+%              spaced at 20% of the distribution, default = 5. 
+%   nnodes   : number of grid nodes, higher is more accurate but slower, 30 is 
+%              good, but 50 is recommended for final plots, default = 30.
 %
-% OUTPUT
-% ------          
-% points : projected data points in unit circle or square as array of 
-%          [x,y] = [points(:,1), points(:,2)]
-% lines  : projected contour line segments in unit circle or square as array of
-%          [x1,y1,x2,y2] = [lines(:,1), lines(:,2), lines(:,3), lines(:,4)].
-% ticks  : tick marks as line segments, [x1,y1,x2,y2].
-% frame  : bounding circle or square as line segments.
-% grid   : grid for display of color gradient: imagesc(-1:1, -1:1, grid).   
+% Output          
+%   points : projected data points in unit circle or square as [x,y].
+%   lines  : projected contour line segments in unit circle or square as 
+%            [x1,y1,x2,y2].
+%   ticks  : tick marks as line segments, [x1,y1,x2,y2].
+%   frame  : bounding circle or square as line segments.
+%   grid   : grid for display of color gradient.   
 % 
-% USAGE
-% -----
-% [points] = hypercontour(rphi, 'deg');
-% [points, lines, ticks, frame] = hypercontour(rphi);
-% [points, lines, ticks, frame, grid] = hypercontour(rphi);
-% [points, lines, ticks, frame] = hypercontour(rphi, 'deg,rfp', 5, 60, 10, 50);
-%
-% All input parameters except 'data' are optional. The algorithm and function 
-% are described in:
-%
-%   Vollmer, F.W., 2018. Automatic contouring of geological fabric and finite 
-%   strain data on the unit hyperboloid. Computers & Geosciences, 
-%   https://doi.org/10.1016/j.cageo.2018.03.006
-%
-% This paper should be referenced in publications or presentations using this 
-% or derivative code. See that paper and the files README.md, LICENSE.md, 
-% CITATION.md license and additional information. 
-%
+% Syntax
+%   [points] = hypercontour(rphi);
+%   [points, lines, ticks, frame, grid] = hypercontour(rphi);
+%   [points, lines, ticks, frame] = hypercontour(rphi, 'rfp', 5, 60, 10, 50);
 
 % END HELP
 % -----------------------------------------------------------------------------
@@ -120,15 +105,15 @@ function [points, lines, ticks, frame, grid] = hypercontour(rphi, options, rmax,
 % Linux platforms, and is recommended over this function for non-MATLAB/Octave 
 % use. It can be downloaded for free from: 
 %
+%   https://vollmerf.github.io/ellipsefit/
 %   www.frederickvollmer.com/ellipsefit
 %   www.newpaltz.edu/~vollmerf
 %
 % Please contact the author for any bug reports or feature requests:
 %
-% Frederick W. Vollmer
-% vollmerf@newpaltz.edu 
-% vollmerf@gmail.com
-%
+%   Frederick W. Vollmer
+%   vollmerf@newpaltz.edu 
+%   vollmerf@gmail.com
 %------------------------------------------------------------------------------
 
 %function [points, lines, ticks, frame, grid] = hypercontour(rphi, options, rmax, kappa, nlevels, nnodes)
@@ -676,8 +661,8 @@ function [opts] = getOptions(options)
     opts.angfmt = 1;
   elseif hasOption(options, 'grd') % gradians
     opts.angfmt = 2;
-  else % radians
-    opts.angfmt = 0;
+  else % degrees
+    opts.angfmt = 1;
   end  
   if hasOption(options, 'eqd') % equidistant (log R, Elliott plot)
     opts.proj = 0;

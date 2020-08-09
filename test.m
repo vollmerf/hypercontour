@@ -9,13 +9,13 @@
 rphi = csvread([pathname, filename]);
 
 % create equidistant plot (Elliott plot)
-[points, lines, ticks, frame, grid] = hypercontour(rphi, 'deg');
+[points, lines, ticks, frame, grid] = hypercontour(rphi);
 
-% create high quality stereographic plot
-%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'deg,stg', 6, 40, 5, 50);
+% create high quality equal-area plot
+%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'eqa', 6, 40, 5, 50);
 
 % create equidistant (log) RfPhi plot
-%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'deg,rfp');
+%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'rfp');
 
 % set up figure
 figure;
@@ -24,7 +24,7 @@ axis([-1.0 1.0 -1.0 1.0]);
 axis('equal');
 axis('off');
 
-% define WBGYR dolormap, image outside plot is white
+% define WBGYR colormap, image outside plot is white
 T = [255,255,255;0,0,255;0,255,0;255,255,0;255,0,0]./255; 
 x = [0,64,128,192,255];
 cmap = interp1(x/255,T,linspace(0,1,255));
@@ -54,7 +54,7 @@ end
 for i = 1:n
   lx = [lines(i,1), lines(i,3)];
   ly = [lines(i,2), lines(i,4)]; 
-  line ('XData', lx, 'YData', ly, 'Color', 'k', 'LineWidth', 2);
+  line ('XData', lx, 'YData', ly, 'Color', 'k', 'LineWidth', 1);
 end
 
 % plot frame, array of (x1, y1, x2, y2)
@@ -69,7 +69,7 @@ end
 px = points(:,1); 
 py = points(:,2); 
 h = plot(px, py, 'o');
-set(h(1),'MarkerEdgeColor','w','MarkerFaceColor','k')
+set(h(1),'MarkerEdgeColor','k','MarkerFaceColor','w')
 
 hold off;
 
