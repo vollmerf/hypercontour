@@ -9,13 +9,13 @@
 rphi = csvread([pathname, filename]);
 
 % create equidistant plot (Elliott plot)
-[points, lines, ticks, frame, grid] = hypercontour(rphi);
+[points,lines,ticks,frame,grid] = hypercontour(rphi);
 
 % create high quality equal-area plot
-%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'eqa', 6, 40, 5, 50);
+%[points,lines,ticks,frame,grid] = hypercontour(rphi,'eqa',6,40,5,50);
 
 % create equidistant (log) RfPhi plot
-%[points, lines, ticks, frame, grid] = hypercontour(rphi, 'rfp');
+%[points,lines,ticks,frame,grid] = hypercontour(rphi,'rfp');
 
 % set up figure
 figure;
