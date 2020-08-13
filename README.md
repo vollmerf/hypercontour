@@ -23,7 +23,7 @@ citation information.
 
 ## Download
 
-[HyperContour](https://github.com/vollmerf/hypercontour)
+[HyperContour](/releases/tag/v1.0.1)
 
 ## Related Software
 
