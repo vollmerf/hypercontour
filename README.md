@@ -1,5 +1,5 @@
 # HyperContour
-MATLAB script for contouring geologic fabric and finite strain data on the unit hyperboloid, including Rf/Phi and Elliott polar plots from Vollmer (2018). Additional files include example data files.
+MATLAB script for contouring geologic fabric and finite strain data on the unit hyperboloid, including Rf/phi and Elliott polar plots from Vollmer (2018). Additional files include example data files.
 
 ![polar](images/polar_200.png) | ![rfphi](images/rfphi_200.png)
 
